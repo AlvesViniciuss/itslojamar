@@ -1,0 +1,116 @@
+/* Reset básico de margem e padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo e fundo */
+body {
+    font-family: "Comic Sans MS", "Comic Sans", cursive; /* Define Comic Sans como fonte principal */
+    color: #333;
+    line-height: 1.6;
+    margin: 0; /* Remove margens para garantir que o fundo cubra toda a tela */
+    padding: 20px; /* Remove padding para garantir que o fundo cubra toda a tela */
+    background-image: url('/static/background.jpg');
+    background-size: cover; /* Garante que a imagem cubra toda a tela */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Impede que a imagem se repita */
+    height: 100vh; /* Define a altura do body como 100% da altura da viewport */
+    width: 100vw; /* Define a largura do body como 100% da largura da viewport */
+    overflow-x: hidden; /* Remove a rolagem horizontal */
+}
+
+/* Container principal para adicionar margem lateral */
+.container {
+    max-width: 80%; /* Define a largura máxima como 80% da largura da viewport */
+    margin: 0 auto; /* Centraliza o container */
+    padding: 20px; /* Adiciona padding interno */
+}
+
+/* Cabeçalho */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px; /* Adiciona padding lateral */
+    border-bottom: 2px solid #007bff;
+    background-color: #ffffffb6;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #007bff;
+}
+
+/* Menu de navegação */
+.navbar {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+    background-color: #ffffffb6;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+/* Tabela */
+table {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Classes para lucro */
+.lucro-positivo {
+    color: green;
+}
+
+.lucro-negativo {
+    color: red;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    table {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+}

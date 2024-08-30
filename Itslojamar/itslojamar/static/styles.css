@@ -1,0 +1,213 @@
+/* Reset básico de margem e padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo e fundo */
+body {
+    font-family: "Comic Sans MS", "Comic Sans", cursive; /* Fonte Comic Sans */
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+    background-image: url('/static/background.jpg'); /* Fundo da página */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Cabeçalho */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 2px solid #007bff;
+    background-color: #ffffffa1; /* Cor de fundo ajustada */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #007bff;
+}
+
+/* Menu de navegação */
+.navbar {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+    background-color: #ffffffa1; /* Cor de fundo ajustada */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #058eff; /* Cor do link ajustada */
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+/* Container principal */
+.container {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    flex-direction: column; /* Ajustado para coluna */
+}
+
+/* Seções */
+.form-section, .history-section, .average-price-section {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Layout do formulário e das tabelas */
+.main-layout {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.form-section {
+    flex: 1 1 30%; /* Formulário ocupa 30% da largura */
+}
+
+.history-section {
+    flex: 1 1 70%; /* Histórico ocupa 70% da largura */
+}
+
+.average-price-section {
+    width: 100%; /* Preço médio ocupa toda a largura restante */
+}
+
+/* Estilização do formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espaçamento entre campos */
+}
+
+form label {
+    font-weight: bold;
+}
+
+form input, form button {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+form input[type="text"], form input[type="number"], form input[type="date"] {
+    width: 100%; /* Preenche a largura disponível */
+}
+
+/* Botão registrar compra */
+.submit-button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%; /* Ocupa toda a largura disponível no formulário */
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    padding: 10px; /* Ajustado para maior consistência */
+    font-size: 16px; /* Ajustado para maior consistência */
+}
+
+.submit-button:hover {
+    background: #0056b3;
+}
+
+/* Botão editar */
+.edit-button {
+    display: inline-block;
+    background: #007bff; /* Cor de fundo do botão editar */
+    color: #fff;
+    padding: 10px 20px; /* Padding consistente */
+    border-radius: 6px;
+    border: none;
+    font-weight: bold;
+    font-size: 12px; /* Tamanho da fonte consistente */
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center; /* Centraliza o texto */
+    width: 120px; /* Largura fixa para uniformidade */
+    line-height: 1.5; /* Altura da linha para alinhar o texto verticalmente */
+    box-sizing: border-box; /* Inclui padding e border no cálculo da largura e altura */
+}
+
+/* Botão excluir */
+.delete-button {
+    display: inline-block;
+    background: #dc3545; /* Cor de fundo do botão excluir */
+    color: #fff;
+    padding: 10px 20px; /* Padding consistente */
+    border-radius: 6px;
+    border: none;
+    font-weight: bold;
+    font-size: 12px; /* Tamanho da fonte consistente */
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center; /* Centraliza o texto */
+    width: 120px; /* Largura fixa para uniformidade */
+    line-height: 1.5; /* Altura da linha para alinhar o texto verticalmente */
+    box-sizing: border-box; /* Inclui padding e border no cálculo da largura e altura */
+}
+
+/* Ajuste adicional para garantir que todos os botões se comportem de maneira consistente */
+button, .edit-button, .delete-button {
+    height: auto; /* Garante que a altura se ajuste ao conteúdo */
+}
+
+
+/* Tabelas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+    font-size: 14px;
+}
+
+table th {
+    background: #f2f2f2;
+    font-weight: bold;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .main-layout {
+        flex-direction: column;
+    }
+
+    .form-section, .history-section {
+        flex: 1 1 auto;
+    }
+
+    form input, form button {
+        font-size: 12px;
+    }
+
+    table th, table td {
+        font-size: 12px;
+        padding: 6px;
+    }
+}

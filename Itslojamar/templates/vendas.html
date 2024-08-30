@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendas.css') }}">
+</head>
+<body>
+    <header class="header">
+        <h1>Vendas</h1>
+    </header>
+    
+    <div class="navbar">
+        <a href="{{ url_for('index') }}">Início</a>
+        <a href="{{ url_for('compra') }}">Compra</a>
+        <a href="{{ url_for('estoque') }}">Estoque</a>
+        <a href="{{ url_for('vendas') }}">Vendas</a>
+    </div>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Modelo</th>
+                <th>Tamanho</th>
+                <th>Cor</th>
+                <th>Quantidade</th>
+                <th>Valor Unitário</th>
+                <th>Valor Total</th>
+                <th>Preço Médio</th>
+                <th>Lucro</th> <!-- Adicionado coluna de lucro -->
+                <th>Data</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for venda in vendas %}
+                <tr>
+                    <td>{{ venda.id }}</td>
+                    <td>{{ venda.modelo }}</td>
+                    <td>{{ venda.tamanho }}</td>
+                    <td>{{ venda.cor }}</td>
+                    <td>{{ venda.quantidade }}</td>
+                    <td>R$ {{ "%.2f"|format(venda.valor_unitario) }}</td>
+                    <td>R$ {{ "%.2f"|format(venda.valor_unitario * venda.quantidade)}}</td>
+                    <td>R$ {{ "%.2f"|format(venda.preco_medio) }}</td>
+                    <td class="{{ 'lucro-positivo' if venda.valor_unitario - venda.preco_medio >= 0 else 'lucro-negativo' }}">
+                        R$ {{ "%.2f"|format(venda.valor_unitario * venda.quantidade - venda.preco_medio * venda.quantidade) }}
+                    </td>
+                    <td>{{ venda.data.strftime('%d/%m/%Y') }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

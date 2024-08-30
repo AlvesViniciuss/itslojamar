@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial</title>
+    <link rel="stylesheet" href="static/home.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>itsLoj<span class="highlight">a</span>mar</h1>
+        </div>
+    </header>
+    <ul>
+        <li><a href="{{ url_for('estoque') }}">Visualizar Estoque</a></li>
+        <li><a href="{{ url_for('vendas') }}">Ver Histórico de Vendas</a></li>
+        <li><a href="{{ url_for('compra') }}">Registrar Nova Compra</a></li>
+    </ul>
+</body>
+</html>

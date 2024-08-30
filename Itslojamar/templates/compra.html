@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compra</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header class="header">
+        <h1>Compra</h1>
+    </header>
+    
+    <div class="navbar">
+        <a href="{{ url_for('index') }}">Início</a>
+        <a href="{{ url_for('compra') }}">Compra</a>
+        <a href="{{ url_for('estoque') }}">Estoque</a>
+        <a href="{{ url_for('vendas') }}">Vendas</a>
+    </div>
+
+    <div class="container">
+        <div class="main-layout">
+            <!-- Formulário -->
+            <div class="form-section">
+                <form action="/compra" method="post">
+                    <label for="modelo">Modelo:</label>
+                    <input type="text" id="modelo" name="modelo" required>
+                    
+                    <label for="tamanho">Tamanho:</label>
+                    <input type="text" id="tamanho" name="tamanho" required>
+                    
+                    <label for="cor">Cor:</label>
+                    <input type="text" id="cor" name="cor" required>
+                    
+                    <label for="quantidade">Quantidade:</label>
+                    <input type="number" id="quantidade" name="quantidade" required>
+                    
+                    <label for="valor">Valor:</label>
+                    <input type="number" step="0.01" id="valor" name="valor" required>
+                    
+                    <label for="data">Data:</label>
+                    <input type="date" id="data" name="data" required>
+                    
+                    <button type="submit" class="submit-button">Registrar Compra</button>
+                </form>
+            </div>
+            
+            <!-- Histórico de Compras -->
+            <div class="history-section">
+                <h2>Histórico de Compras</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Modelo</th>
+                            <th>Tamanho</th>
+                            <th>Cor</th>
+                            <th>Quantidade</th>
+                            <th>Valor</th>
+                            <th>Total</th>
+                            <th>Data</th>
+                            <th>Ações</th> <!-- Nova coluna para ações -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for compra in compras %}
+                        <tr>
+                            <td>{{ compra.id }}</td>
+                            <td>{{ compra.modelo }}</td>
+                            <td>{{ compra.tamanho }}</td>
+                            <td>{{ compra.cor }}</td>
+                            <td>{{ compra.quantidade }}</td>
+                            <td>{{ compra.valor }}</td>
+                            <td>{{ compra.total }}</td>
+                            <td>{{ compra.data }}</td>
+                            <td>
+                                <!-- Botão de Editar -->
+                                <a href="{{ url_for('editar_compra', id=compra.id) }}" class="edit-button">Editar</a>
+                                <!-- Botão de Excluir -->
+                                <form action="{{ url_for('excluir_compra', id=compra.id) }}" method="post" class="delete-form" style="display:inline;">
+                                    <button type="submit" class="delete-button" onclick="return confirm('Tem certeza que deseja excluir esta compra?');">Excluir</button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Preço Médio dos Modelos -->
+        <div class="average-price-section">
+            <h2>Preço Médio dos Modelos</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Modelo</th>
+                        <th>Preço Médio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for modelo in modelos %}
+                    <tr>
+                        <td>{{ modelo.modelo }}</td>
+                        <td>{{ modelo.preco_medio }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

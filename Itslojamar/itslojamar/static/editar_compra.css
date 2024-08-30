@@ -1,0 +1,152 @@
+/* Reset básico de margem e padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo e fundo */
+body {
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+    background-image: url('/static/background.jpg'); /* Fundo do corpo */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Cabeçalho */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 2px solid #007bff;
+    background-color: #ffffffa1; /* Cor de fundo ajustada */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #007bff;
+}
+
+/* Menu de navegação */
+.navbar {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+    background-color: #ffffffa1; /* Cor de fundo ajustada */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #058eff; /* Cor do link ajustada */
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+/* Container principal */
+.container {
+    display: flex;
+    margin-top: 20px;
+    align-items: flex-start;
+}
+
+/* Seções */
+.form-section {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    flex: 1 1 40%; /* Formulário ocupa 40% da largura */
+    max-width: 600px; /* Define uma largura máxima para a seção */
+}
+
+/* Estilização do formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espaçamento entre campos */
+}
+
+form label {
+    font-weight: bold;
+}
+
+form input, form button {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+form input[type="text"], form input[type="number"], form input[type="date"] {
+    width: 100%; /* Preenche a largura disponível */
+}
+
+/* Contêiner para botões */
+.form-buttons {
+    display: flex;
+    gap: 10px; /* Espaçamento entre botões */
+    margin-top: 10px;
+}
+
+/* Botão salvar */
+form button {
+    color: #fff;
+    background: #1d9ff5;
+    border: none; /* Remove a borda padrão do botão */
+    font-weight: bold;
+    flex: 1; /* Ocupa igual largura ao botão cancelar */
+    font-size: 16px;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    padding: 8px 16px; /* Adiciona padding ao botão */
+    border-radius: 4px; /* Adiciona bordas arredondadas */
+}
+
+form button:hover {
+    background: #0056b3;
+}
+
+/* Botão cancelar */
+.cancel-button {
+    color: #fff;
+    background: #fa1414;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none; /* Remove a borda padrão do botão */
+    font-weight: bold;
+    flex: 1; /* Ocupa igual largura ao botão salvar */
+    font-size: 16px;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    padding: 8px 16px; /* Adiciona padding ao botão */
+    border-radius: 4px; /* Adiciona bordas arredondadas */
+}
+
+.cancel-button:hover {
+    background: #e03b4e;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .form-section {
+        flex: 1 1 auto; /* Ajusta o formulário para largura total em telas menores */
+    }
+
+    form input, form button {
+        font-size: 12px;
+    }
+}
